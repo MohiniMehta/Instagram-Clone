@@ -23,7 +23,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.example.instagram_clone"
+    namespace "com.example.instagramclone"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
