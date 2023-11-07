@@ -1,7 +1,6 @@
 # instagram_clone
 
-A new Flutter project.
-
+Aim: To create instagram clone.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
