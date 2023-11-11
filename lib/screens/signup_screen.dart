@@ -80,8 +80,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     backgroundImage: MemoryImage(image!),
                     ): const CircleAvatar(
                     radius: 64,
-                    backgroundImage: NetworkImage(
-                      'https://www.pngarts.com/files/10/Default-Profile-Picture-Transparent-Image.png'),
+                    backgroundImage:AssetImage('assets/images/userprofile.jpg'),
                   ), 
                   Positioned(
                     bottom: -10,
