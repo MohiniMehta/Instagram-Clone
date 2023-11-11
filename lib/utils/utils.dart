@@ -8,7 +8,7 @@ pickImage(ImageSource source) async{
  if(file!=null){
   return await file.readAsBytes();
  }
-// print('No image selected');
+ return null;
 }
 showSnackBar(String content,BuildContext context){
   ScaffoldMessenger.of(context).showSnackBar(
