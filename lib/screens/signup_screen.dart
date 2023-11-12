@@ -1,14 +1,20 @@
+
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram_clone/resources/auth_methods.dart';
+import 'package:instagram_clone/responsive/mobile_screen_layout.dart';
+import 'package:instagram_clone/responsive/responsive_layout_screen.dart';
+import 'package:instagram_clone/responsive/web_screen_layout.dart';
+import 'package:instagram_clone/screens/login_screen.dart';
 import 'package:instagram_clone/utils/colors.dart';
 import 'package:instagram_clone/utils/utils.dart';
 import 'package:instagram_clone/widgets/text_field_input.dart';
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -52,6 +58,18 @@ class _SignupScreenState extends State<SignupScreen> {
                          if(res !="success"){
                           // ignore: use_build_context_synchronously
                           showSnackBar(res, context);
+                         }
+                         else{
+                          // ignore: use_build_context_synchronously
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute( 
+                              builder: (context)=>
+                              const ResponsiveLayout(
+                webScreenLayout: WebScreenLayout(),
+                 mobileScreenLayout: MobileScreenLayout()
+                 )
+                               )
+                          );
                          }
                   }
 
@@ -163,14 +181,12 @@ class _SignupScreenState extends State<SignupScreen> {
                       child: const Text("Dont't have an account?"),
                     ),
                      GestureDetector(
-                      onTap: () {
-                        
-                      },
+                      onTap:navigateToLogin,
                        child: Container(
                         padding: const EdgeInsets.symmetric(
                           vertical: 8
                         ),
-                        child: const Text("Sign up",
+                        child: const Text("Login",
                          style: TextStyle(
                           fontWeight: FontWeight.bold,
                          ),
@@ -184,5 +200,13 @@ class _SignupScreenState extends State<SignupScreen> {
         ) 
         ),
     );
+  }
+
+  void navigateToLogin() {
+    Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context)=>const LoginScreen()
+      )
+      );
   }
 }
