@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone/resources/auth_methods.dart';
+import 'package:instagram_clone/responsive/mobile_screen_layout.dart';
+import 'package:instagram_clone/responsive/responsive_layout_screen.dart';
+import 'package:instagram_clone/responsive/web_screen_layout.dart';
 import 'package:instagram_clone/screens/signup_screen.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone/utils/colors.dart';
@@ -32,7 +35,16 @@ class _LoginScreenState extends State<LoginScreen> {
       password: _passwordController.text,
       );
       if(res=="success"){
-
+         // ignore: use_build_context_synchronously
+         Navigator.of(context).pushReplacement(
+                            MaterialPageRoute( 
+                              builder: (context)=>
+                              const ResponsiveLayout(
+                webScreenLayout: WebScreenLayout(),
+                 mobileScreenLayout: MobileScreenLayout()
+                 )
+                               )
+                          );
       }
       else{
         // ignore: use_build_context_synchronously
