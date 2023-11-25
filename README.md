@@ -1,6 +1,7 @@
 # instagram_clone
 
 Aim: To create instagram clone.
+The app imclude Firebase.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
